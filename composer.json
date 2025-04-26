@@ -1,0 +1,17 @@
+{
+    "name": "akselsaatci/ako_framework",
+    "description": "Hobby file based HTTP framework for PHP",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Ako\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "akselsaatci",
+            "email": "100696686+akselsaatci@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
