@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Http\Router\RouteContainer;
+namespace Framework\Http\Router;
 
 use Error;
 
@@ -11,38 +11,38 @@ class RouteContainer
 
 
     // MAKING THEM FLUEEEENTT
-    public function get(string $route, $handler)
+    public function get(string $route, callable $handler)
     {
         $this->routes["GET"][$route] = $handler;
     }
-    public function post(string $route, $handler)
+    public function post(string $route, callable $handler)
     {
 
         $this->routes["POST"][$route] = $handler;
     }
-    public function put(string $route, $handler)
+    public function put(string $route, callable  $handler)
     {
         $this->routes["PUT"][$route] = $handler;
     }
-    public function delete(string $route, $handler)
+    public function delete(string $route, callable $handler)
     {
         $this->routes["DELETE"][$route] = $handler;
     }
-    public function patch(string $route, $handler)
+    public function patch(string $route, callable $handler)
     {
         $this->routes["PATCH"][$route] = $handler;
     }
 
 
-    public function getHandler(string $route)
+    public function getHandler(string $method, string $route)
     {
+        $route = parse_url($route, PHP_URL_PATH);
 
-        $handler = $this->routes[$route];
-
-        if ($handler == null) {
-            // TODO: Make custom errors and better error messages
-            throw new Error("There is no route matching this route.");
+        if (isset($this->routes[$method][$route])) {
+            return $this->routes[$method][$route];
         }
-        return $handler;
+        // TODO: get query params and also pass them ext.
+
+        return null;
     }
 }

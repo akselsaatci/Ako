@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Http\Request;
+namespace Framework\Http;
 
 
 class Request
@@ -23,8 +23,21 @@ class Request
         $this->server =  $SERVER;
     }
 
-    public static function createFromGlobals() : Request
+    public static function createFromGlobals(): Request
     {
         return new self($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+    }
+
+    public function getMethod()
+    {
+
+        return $this->server["REQUEST_METHOD"];
+    }
+
+
+    public function getUri()
+    {
+
+        return $this->server["REQUEST_URI"];
     }
 }
