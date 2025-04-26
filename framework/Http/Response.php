@@ -1,7 +1,8 @@
 <?php
 
-namespace Framework\Http\Response;
+namespace Framework\Http;
 
+use Framework\Http\Enums\HttpContentTypes;
 
 class Response
 {
@@ -47,7 +48,35 @@ class Response
         return $this->statusCode;
     }
 
+    public function setContentTypeHeader(HttpContentTypes $type)
+    {
+        return $this->headers["Content-Type"] = $type->value;
+    }
+    private function prepareHeaders()
+    {
+        foreach ($this->headers as $header => $value) {
+            header($header, $value);
+        }
+        http_response_code($this->getStatusCode());
+    }
+
+
+
 
     // TODO: Implement the set and prepare methods
+
     // Prepare is for validating the headers and overall of the request
+
+    public function send()
+    {
+        $this->prepareHeaders();
+        echo $this->content;
+        exit;
+        
+    }
+
+    // TODO: Implement those 
+    public function view(){}
+    public function json(){}
+    public function text(){}
 }

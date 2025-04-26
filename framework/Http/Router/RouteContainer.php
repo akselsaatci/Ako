@@ -14,23 +14,27 @@ class RouteContainer
     public function get(string $route, callable $handler)
     {
         $this->routes["GET"][$route] = $handler;
+        return $this;
     }
     public function post(string $route, callable $handler)
     {
-
         $this->routes["POST"][$route] = $handler;
+        return $this;
     }
     public function put(string $route, callable  $handler)
     {
         $this->routes["PUT"][$route] = $handler;
+        return $this;
     }
     public function delete(string $route, callable $handler)
     {
         $this->routes["DELETE"][$route] = $handler;
+        return $this;
     }
     public function patch(string $route, callable $handler)
     {
         $this->routes["PATCH"][$route] = $handler;
+        return $this;
     }
 
 
