@@ -13,5 +13,9 @@
             "email": "100696686+akselsaatci@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+    }
 }

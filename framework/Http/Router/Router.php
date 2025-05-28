@@ -35,6 +35,6 @@ class Router
             return $handler();
         }
 
-        throw new \Exception('Invalid handler.');
+        throw new Exception('Invalid handler.');
     }
 }

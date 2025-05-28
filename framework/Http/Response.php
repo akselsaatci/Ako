@@ -57,7 +57,7 @@ class Response
         foreach ($this->headers as $header => $value) {
             header($header, $value);
         }
-        http_response_code($this->getStatusCode());
+ //       http_response_code($this->getStatusCode());
     }
 
 

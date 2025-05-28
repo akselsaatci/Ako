@@ -10,6 +10,8 @@ use Framework\Http\Request;
 use Framework\Http\Response;
 use Framework\Http\Router\RouteContainer;
 use Framework\Http\Router\Router;
+use Framework\Logger\Handlers\FileLogHandler;
+use Framework\Logger\Logger;
 
 require_once dirname(__DIR__) . '../../vendor/autoload.php';
 
@@ -24,5 +26,7 @@ $container->get('/', function () {
 });
 
 $router = new Router($container);
-$kernel = new Kernel($router, $request);
+$logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
+$logger = new Logger($logHandler);
+$kernel = new Kernel($router, $request,$logger);
 $kernel->handle();

@@ -40,6 +40,7 @@ class RouteContainer
 
     public function getHandler(string $method, string $route)
     {
+        // TODO: Should support dynamic paths ext... 
         $route = parse_url($route, PHP_URL_PATH);
 
         if (isset($this->routes[$method][$route])) {
