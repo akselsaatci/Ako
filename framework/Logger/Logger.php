@@ -11,6 +11,7 @@ class Logger implements LoggerInterface
 
     public function __construct(LogHandlerInterface $dipstacher)
     {
+        //TODO: Maybe different channels for different log levels?
         $this->dispatcher = $dipstacher;
     }
 
@@ -80,9 +81,34 @@ class Logger implements LoggerInterface
     }
 
 
-    private function  formatMessage(string $level, string $message, mixed $context): string
+    //From psr-3
+
+    /**
+     * Interpolates context values into the message placeholders.
+     * @param array<int,mixed> $context
+     */
+    private   function interpolate(string $message, array $context = array()): string
     {
-        $formattedMessage = sprintf("[%s] : %s \nContext : %s \n", $level, $message, implode(' ',$context));
+        // build a replacement array with braces around the context keys
+        $replace = array();
+        foreach ($context as $key => $val) {
+            // check that the value can be cast to string
+            if (!is_array($val) && (!is_object($val) || method_exists($val, '__toString'))) {
+                $replace['{' . $key . '}'] = $val;
+            }
+        }
+
+        // interpolate replacement values into the message and return
+        return strtr($message, $replace);
+    }
+    /**
+     * @param array<int,mixed> $context
+     */
+    private function  formatMessage(string $level, string $message, array $context): string
+    {
+        //TODO: Add context to logging
+        $message = $this->interpolate($message, $context);
+        $formattedMessage = sprintf("[%s] : %s \n", $level, $message);
 
         return $formattedMessage;
     }

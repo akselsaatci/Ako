@@ -1,2 +1,1 @@
-[INFO] : LOGGER INIT 
-Context :  
+[INFO] : Ako Kernel Initilized Date : 12:32:30pm 

@@ -15,21 +15,22 @@ class Kernel
     private readonly LoggerInterface $logger;
 
 
-    public function __construct(Router $router, Request $request , LoggerInterface $logger)
+    public function __construct(Router $router, Request $request, LoggerInterface $logger)
     {
         $this->router = $router;
         $this->request = $request;
         $this->logger = $logger;
-        $this->logger->info("LOGGER INIT");
+        $this->logger->info("Ako Kernel Initilized Date : {datetime}" , ["datetime"=>date("h:i:sa")]);
     }
 
-    public function handle() : void
+    public function handle(): void
     {
         try {
             $handler =  $this->router->dispatch($this->request->getMethod(), $this->request->getUri());
             $response = $this->router->resolve($handler);
             echo $response;
         } catch (Exception $ex) {
+            
             echo '404';
         }
     }
