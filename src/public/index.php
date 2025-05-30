@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\public;
 
+use Framework\Http\Context;
 use Framework\Http\Enums\HttpContentTypes;
 use Framework\Http\Kernel;
 use Framework\Http\Request;
@@ -17,16 +18,21 @@ require_once dirname(__DIR__) . '../../vendor/autoload.php';
 
 $request = Request::createFromGlobals();
 
+$context = new Context();
+$logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
+$logger = new Logger($logHandler);
+$context->set("logger", $logger);
+
 $container = new RouteContainer();
-$container->get('/aksel/', function () {
-    $response = new Response(200,[],"");
+$container->get('/aksel', function () use ($context){
+    $response = new Response(200, [], "");
     $response->setContentTypeHeader(HttpContentTypes::TextHtml);
-    $response->setContent('<!doctypehtml><h2>HTML Forms</h2><form action=/action_page.php><label for=fname>First name:</label><br><input value=John id=fname name=fname><br><label for=lname>Last name:</label><br><input value=Doe id=lname name=lname><br><br><input value=Submit type=submit></form><p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".');
+    $content = TestPage::initPage([],$context);
+    $response->setContent($content);
     $response->send();
 });
 
-$router = new Router($container);
-$logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
-$logger = new Logger($logHandler);
-$kernel = new Kernel($router, $request,$logger);
+$router = new Router($container, $context);
+
+$kernel = new Kernel($router, $request, $context);
 $kernel->handle();
