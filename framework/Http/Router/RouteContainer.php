@@ -18,13 +18,42 @@ class RouteContainer
 
         return $route;
     }
+
+    private function getRegexAndParameters(string $route): array
+    {
+        preg_match_all('#:([\w]+)#', $route, $matches);
+        $paramNames = $matches[1];
+
+        foreach ($paramNames as $paramName) {
+            $route = str_replace(':' . $paramName, '([^/]+)', $route);
+        }
+
+        $regex = '#^' . $route . '$#';
+
+        return [
+            'regex' => $regex,
+            'paramNames' => $paramNames,
+        ];
+    }
+
+
+
     /**
      * @param callable(): mixed $handler
      */
     public function get(string $route, callable $handler): RouteContainer
     {
         $route = $this->validateRoute($route);
-        $this->routes["GET"][$route] = $handler;
+
+        $regexAndParameters = $this->getRegexAndParameters($route);
+
+        $this->routes["GET"][] = [
+            'pattern' => $route,
+            'regex' => $regexAndParameters['regex'],
+            'paramNames' => $regexAndParameters['paramNames'],
+            'handler' => $handler,
+        ];
+
         return $this;
     }
     /**
@@ -33,7 +62,16 @@ class RouteContainer
     public function post(string $route, callable $handler): RouteContainer
     {
         $route = $this->validateRoute($route);
-        $this->routes["POST"][$route] = $handler;
+
+        $regexAndParameters = $this->getRegexAndParameters($route);
+
+        $this->routes["POST"][] = [
+            'pattern' => $route,
+            'regex' => $regexAndParameters['regex'],
+            'paramNames' => $regexAndParameters['paramNames'],
+            'handler' => $handler,
+        ];
+
         return $this;
     }
     /**
@@ -42,7 +80,16 @@ class RouteContainer
     public function put(string $route, callable  $handler): RouteContainer
     {
         $route = $this->validateRoute($route);
-        $this->routes["PUT"][$route] = $handler;
+
+        $regexAndParameters = $this->getRegexAndParameters($route);
+
+        $this->routes["PUT"][] = [
+            'pattern' => $route,
+            'regex' => $regexAndParameters['regex'],
+            'paramNames' => $regexAndParameters['paramNames'],
+            'handler' => $handler,
+        ];
+
         return $this;
     }
     /**
@@ -51,7 +98,16 @@ class RouteContainer
     public function delete(string $route, callable $handler): RouteContainer
     {
         $route = $this->validateRoute($route);
-        $this->routes["DELETE"][$route] = $handler;
+
+        $regexAndParameters = $this->getRegexAndParameters($route);
+
+        $this->routes["DELETE"][] = [
+            'pattern' => $route,
+            'regex' => $regexAndParameters['regex'],
+            'paramNames' => $regexAndParameters['paramNames'],
+            'handler' => $handler,
+        ];
+
         return $this;
     }
     /**
@@ -60,25 +116,39 @@ class RouteContainer
     public function patch(string $route, callable $handler): RouteContainer
     {
         $route = $this->validateRoute($route);
-        $this->routes["PATCH"][$route] = $handler;
+
+        $regexAndParameters = $this->getRegexAndParameters($route);
+
+        $this->routes["PATCH"][] = [
+            'pattern' => $route,
+            'regex' => $regexAndParameters['regex'],
+            'paramNames' => $regexAndParameters['paramNames'],
+            'handler' => $handler,
+        ];
+
         return $this;
     }
 
-
-    public function getHandler(string $method, string $route): callable | null
+    public function getHandler(string $method, string $route): ?callable
     {
         if ($route[-1] != '/') {
-            $route = $route . '/';
+            $route .= '/';
         }
 
-        // TODO: Should support dynamic paths ext... 
-        $route = parse_url($route, PHP_URL_PATH);
-
-
-        if (isset($this->routes[$method][$route])) {
-            return $this->routes[$method][$route];
+        if (!isset($this->routes[$method])) {
+            return null;
         }
-        // TODO: get query params and also pass them ext.
+
+        foreach ($this->routes[$method] as $routeEntry) {
+            if (preg_match($routeEntry['regex'], $route, $matches)) {
+                array_shift($matches);
+                $params = array_combine($routeEntry['paramNames'], $matches);
+
+                return function () use ($routeEntry, $params) {
+                    return call_user_func($routeEntry['handler'], $params);
+                };
+            }
+        }
 
         return null;
     }
