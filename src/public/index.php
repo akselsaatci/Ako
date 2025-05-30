@@ -18,16 +18,17 @@ require_once dirname(__DIR__) . '../../vendor/autoload.php';
 
 $request = Request::createFromGlobals();
 
-$context = new Context();
 $logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
 $logger = new Logger($logHandler);
+$context = new Context($request,$logger);
 $context->set("logger", $logger);
+$context->set("request",$request);
 
 $container = new RouteContainer();
 $container->get('/aksel', function () use ($context){
     $response = new Response(200, [], "");
     $response->setContentTypeHeader(HttpContentTypes::TextHtml);
-    $content = TestPage::initPage([],$context);
+    $content = TestPage::initPage(["zort" => "xD"],$context);
     $response->setContent($content);
     $response->send();
 });

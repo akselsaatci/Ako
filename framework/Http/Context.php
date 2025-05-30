@@ -3,6 +3,7 @@
 namespace Framework\Http;
 
 use Exception;
+use Psr\Log\LoggerInterface;
 
 class Context
 {
@@ -11,6 +12,15 @@ class Context
 
     private array $services = [];
 
+    public Request $request;
+    public LoggerInterface $logger;
+
+    public function  __construct(Request $request, LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+        $this->request = $request;
+    }
+    
     public function set(string $key, mixed $service): void
     {
         $this->services[$key] = $service;

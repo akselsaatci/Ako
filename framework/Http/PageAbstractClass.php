@@ -5,8 +5,8 @@ namespace Framework\Http;
 abstract class PageAbstractClass
 {
 
-    private array $arguments;
-    private Context $context;
+    protected array $arguments;
+    protected Context $context;
 
     public function  __construct(array $arguments, Context $context)
     {

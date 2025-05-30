@@ -16,7 +16,7 @@ class TestPage extends PageAbstractClass
         <html>
 
         <body>
-            <h1>AKSEL <?php echo $this->testParam ?>
+            <h1>AKSEL <?php echo $this->arguments["zort"] ?? "ZORT YOK LA"?>
             </h1>
         </body>
 
