@@ -16,7 +16,7 @@ class Response
     const VERSION = 1.1;
 
 
-    function __construct(int $statusCode, array $headers, ?string $content)
+    function __construct(int $statusCode, array $headers, ?string $content = "")
     {
         $this->statusCode = $statusCode;
         $this->headers = $headers;
