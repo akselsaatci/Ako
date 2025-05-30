@@ -21,6 +21,6 @@ abstract class PageAbstractClass
         $content = ob_get_clean();
         return $content;
     }
-    public function render() {}
+    public abstract function render();
 }
 
