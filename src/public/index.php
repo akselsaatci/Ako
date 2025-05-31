@@ -9,6 +9,7 @@ use Framework\Http\Enums\HttpContentTypes;
 use Framework\Http\Kernel;
 use Framework\Http\Request;
 use Framework\Http\Response;
+use Framework\Http\Router\FileBasedRouteFinder;
 use Framework\Http\Router\RouteContainer;
 use Framework\Http\Router\Router;
 use Framework\Logger\Handlers\FileLogHandler;
@@ -20,16 +21,19 @@ $request = Request::createFromGlobals();
 
 $logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
 $logger = new Logger($logHandler);
-$context = new Context($request,$logger);
-$context->set("logger", $logger);
-$context->set("request",$request);
+$context = new Context($request, $logger);
+$finder = new FileBasedRouteFinder($context);
+$routes = $finder->getFileBasedPages(__DIR__ . '/Pages');
+$container = new RouteContainer($context);
 
-$container = new RouteContainer();
-$container->get('/aksel', function () use ($context){
-    $response = new Response(200, [], "");
+foreach ($routes as $route) {
+    $container->registerRoute($route["method"], $route["route"], [$route["class"], $route["method"]]);
+}
+
+$container->get('/aksel/', function ($urlParams) use ($context){
+    $response = new Response(200, []);
     $response->setContentTypeHeader(HttpContentTypes::TextHtml);
-    $content = TestPage::initPage(["zort" => "xD"],$context);
-    $response->setContent($content);
+    $response->setContent("akoman11");
     $response->send();
 });
 

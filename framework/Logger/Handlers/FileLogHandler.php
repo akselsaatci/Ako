@@ -18,6 +18,6 @@ class FileLogHandler implements LogHandlerInterface
 
     public function handleLog(string $message): void
     {
-        file_put_contents($this->logFileLocation, $message);
+        file_put_contents($this->logFileLocation, $message,FILE_APPEND);
     }
 }

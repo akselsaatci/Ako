@@ -4,6 +4,7 @@ namespace Framework\Http\Router;
 
 use Exception;
 use Framework\Http\Context;
+use Framework\Http\Exceptions\RouteNotFoundException;
 use Framework\Http\Router\RouteContainer;
 
 class Router
@@ -23,18 +24,15 @@ class Router
     {
         $handler = $this->routeContainer->getHandler($method, $path);
 
-        //WARNING: It is a so bad way to use should change this logger
-
-        $this->context->get('logger')->warning('PATH :' . $path . "\n");
-
         if ($handler === null) {
-            throw new Exception('404');
+            $this->context->logger->info($method . ' for ' . $path . ' not found!');
+            throw new RouteNotFoundException($method . ' for ' . $path . ' not found!');
         }
 
         return $handler;
     }
 
-    public function resolve($handler): callable
+    public function resolve($handler):mixed
     {
         if (is_callable($handler)) {
             return $handler();

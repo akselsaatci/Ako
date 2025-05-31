@@ -13,14 +13,19 @@ abstract class PageAbstractClass
         $this->arguments = $arguments;
         $this->context = $context;
     }
-    public static function  initPage(array $arguments, Context $context): string
+    // FIX: Here i think it shouldn't be public but when i make it protected 
+    // i cant call it from the global scope
+    public static function  renderPageHtml(array $arguments, Context $context): string
     {
         ob_start();
         $page = new static($arguments, $context);
-        $page->render();
+        $page->pageHtml();
         $content = ob_get_clean();
         return $content;
     }
-    public abstract function render();
+    public abstract function pageHtml();
+    /* public static function get(array $arguments, Context $context) {} */
+    /* public static function post(array $arguments, Context $context) {} */
+    /* public static function patch(array $arguments, Context $context) {} */
+    /* public static function put(array $arguments, Context $context) {} */
 }
-

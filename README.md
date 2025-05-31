@@ -14,7 +14,8 @@ I tried to use mostly DI (not like Facades in Laravel). Some of the shared utili
 
 
 ## Roadmap
-- [ ] Implement route finder by files. 
-- [ ] Fix phpdoc mostly there are not many. 
-- [ ] Make a CLI for ease of usage.
-- [ ] Middlewares.
+- [ ] Implement route finder by files
+- [ ] Layout
+- [ ] Fix phpdoc mostly there are not many
+- [ ] Make a CLI for ease of usage
+- [ ] Middlewares
