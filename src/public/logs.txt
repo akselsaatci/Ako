@@ -2638,3 +2638,427 @@
 [ALERT] : Page.php 
 [INFO] : Ako Kernel Initilized Date : 12:48:32pm 
 [INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 12:53:40pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 12:53:40pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 12:53:40pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 12:53:40pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 01:34:57pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 01:34:57pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:22:21pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:22:21pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:42pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:42pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:46pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:46pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:52pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:52pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:56pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 02:45:56pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:58:57pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:58:57pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:01pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:01pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:01pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:04pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:04pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:08pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 03:59:08pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:04pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:04pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:04pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:04pm 
+[INFO] : GET for /favicon.ico not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:22pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:22pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:22pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:34:22pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:09pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:09pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:09pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:09pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:10pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:10pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:10pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:35:10pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:50pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:36:51pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:37:10pm 
+[INFO] : GET for /logs.txt not found! 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 04:37:10pm 
+[INFO] : GET for /favicon.ico not found! 

@@ -23,6 +23,21 @@ abstract class PageAbstractClass
         $content = ob_get_clean();
         return $content;
     }
+    public static function renderPageHtmlWithLayout(array $arguments, Context $context, mixed $layout): string
+    {
+        ob_start();
+        $page = new static($arguments, $context);
+        $page->pageHtml();
+        $content = ob_get_clean();
+
+        ob_start();
+        $arguments["body"] = $content;
+        $layout = $layout::getLayout($arguments);
+        $layout = ob_get_clean();
+
+        return $layout;
+    }
+
     public abstract function pageHtml();
     /* public static function get(array $arguments, Context $context) {} */
     /* public static function post(array $arguments, Context $context) {} */

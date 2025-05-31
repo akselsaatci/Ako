@@ -30,13 +30,6 @@ foreach ($routes as $route) {
     $container->registerRoute($route["method"], $route["route"], [$route["class"], $route["method"]]);
 }
 
-$container->get('/aksel/', function ($urlParams) use ($context){
-    $response = new Response(200, []);
-    $response->setContentTypeHeader(HttpContentTypes::TextHtml);
-    $response->setContent("akoman11");
-    $response->send();
-});
-
 $router = new Router($container, $context);
 
 $kernel = new Kernel($router, $request, $context);
