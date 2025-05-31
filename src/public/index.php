@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\public;
 
 use Framework\Http\Context;
-use Framework\Http\Enums\HttpContentTypes;
 use Framework\Http\Kernel;
 use Framework\Http\Request;
-use Framework\Http\Response;
 use Framework\Http\Router\FileBasedRouteFinder;
 use Framework\Http\Router\RouteContainer;
 use Framework\Http\Router\Router;
@@ -23,7 +21,7 @@ $logHandler = new FileLogHandler(__DIR__ . "/logs.txt");
 $logger = new Logger($logHandler);
 $context = new Context($request, $logger);
 $finder = new FileBasedRouteFinder($context);
-$routes = $finder->getFileBasedPages(__DIR__ . '/Pages');
+$routes = $finder->getFileBasedPages(__DIR__ . '/../app/Pages');
 $container = new RouteContainer($context);
 
 foreach ($routes as $route) {

@@ -1,10 +1,8 @@
 <?php
 
+namespace App\app\pages;
 
-
-namespace App\public\pages;
-
-use App\public\layouts\Layout;
+use App\app\layouts\Layout;
 use Framework\Http\Context;
 use Framework\Http\PageAbstractClass;
 use Framework\Http\Response;

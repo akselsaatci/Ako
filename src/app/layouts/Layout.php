@@ -1,6 +1,6 @@
 <?php
 
-namespace App\public\layouts;
+namespace App\app\layouts;
 
 use Framework\Http\LayoutInterface;
 
@@ -17,6 +17,7 @@ class Layout implements LayoutInterface
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title><?php echo $arguments["Title"] ?? "My Ako Framework Application" ?></title>
+            <link rel="stylesheet" href="/style.css">
             <?php echo $arguments["styles"] ?? "" ?>
             <link rel="icon" href="./favicon.ico" type="image/x-icon">
         </head>

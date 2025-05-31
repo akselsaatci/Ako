@@ -2,7 +2,7 @@
 
 
 
-namespace App\public\pages;
+namespace App\app\pages;
 
 use Framework\Http\Context;
 use Framework\Http\PageAbstractClass;

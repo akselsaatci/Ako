@@ -44,7 +44,7 @@ class FileBasedRouteFinder
 
             require_once $fullPath;
             $className = pathinfo($file, PATHINFO_FILENAME);
-            $selectedClass = "App\\public\\Pages\\$className";
+            $selectedClass = "App\\app\\Pages\\$className";
 
             if (class_exists($selectedClass) && is_subclass_of($selectedClass, PageAbstractClass::class)) {
 
