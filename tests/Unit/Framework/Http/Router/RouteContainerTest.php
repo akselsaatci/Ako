@@ -61,7 +61,7 @@ test('registers and retrieves POST, PUT, DELETE, PATCH routes', function () {
     $this->container->put('/u', fn() => 'put');
     $this->container->delete('/d', fn() => 'delete');
     $this->container->patch('/pa', fn() => 'patch');
-    
+
     expect($this->container->getHandler('POST', '/p')())->toBe('post');
     expect($this->container->getHandler('PUT', '/u')())->toBe('put');
     expect($this->container->getHandler('DELETE', '/d')())->toBe('delete');
@@ -73,6 +73,10 @@ test('registerRoute works for custom methods', function () {
     $handler = $this->container->getHandler('OPTIONS', '/opt');
     expect($handler)->not->toBeNull();
     expect($handler())->toBe('options');
+});
+
+test('test to fail', function () {
+    expect(3)->toBe(5);
 });
 
 test('handler receives context instance', function () {
