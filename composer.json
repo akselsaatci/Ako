@@ -17,7 +17,8 @@
     ],
     "scripts":{
         "test" : "vendor/bin/pest",
-        "dev" : "php -S localhost:8000 ./src/public/index.php"
+        "dev" : "php -S localhost:8000 ./src/public/index.php",
+        "lint": "phpstan analyse --memory-limit=2048M --level=3 ./src ./framework"
     },
 
     "require": {
@@ -25,7 +26,8 @@
     },
     "require-dev": {
         "pestphp/pest": "^3.8",
-        "mikey179/vfsstream": "^1.6"
+        "mikey179/vfsstream": "^1.6",
+        "phpstan/phpstan": "^2.1"
     },
     "config": {
         "allow-plugins": {

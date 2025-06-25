@@ -14,7 +14,7 @@ abstract class PageAbstractClass
      * @param Context $context 
      * @return void 
      */
-    public function  __construct(array $arguments, Context $context)
+    public final function  __construct(array $arguments, Context $context)
     {
         $this->arguments = $arguments;
         $this->context = $context;
