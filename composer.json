@@ -14,6 +14,11 @@
             "email": "100696686+akselsaatci@users.noreply.github.com"
         }
     ],
+    "scripts":{
+        "test" : "vendor/bin/pest",
+        "dev" : "php -S localhost:8000 ./src/public/index.php"
+    },
+
     "require": {
         "psr/log": "^3.0"
     },
