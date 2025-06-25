@@ -8,6 +8,7 @@ use Framework\Http\Request;
 use Framework\Http\Router\Router;
 use Psr\Log\LoggerInterface;
 
+/** @package Framework\Http */
 class Kernel
 {
 
@@ -17,6 +18,12 @@ class Kernel
     private readonly LoggerInterface $logger;
 
 
+    /**
+     * @param Router $router 
+     * @param Request $request 
+     * @param Context $context 
+     * @return void 
+     */
     public function __construct(Router $router, Request $request, Context $context)
     {
         $this->router = $router;
@@ -27,6 +34,7 @@ class Kernel
         $this->logger->info("Ako Kernel Initilized Date : {datetime}", ["datetime" => date("h:i:sa")]);
     }
 
+    /** @return void  */
     public function handle(): void
     {
         try {

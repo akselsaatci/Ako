@@ -5,21 +5,35 @@ namespace Framework\Http\Router;
 use Framework\Http\Context;
 use Framework\Http\PageAbstractClass;
 
+/** @package Framework\Http\Router */
 class FileBasedRouteFinder
 {
     private Context $context;
 
+    /**
+     * @param Context $context 
+     * @return void 
+     */
     public function __construct(Context $context)
     {
         $this->context = $context;
     }
 
+    /**
+     * @param string $dir 
+     * @return array 
+     */
     public function getFileBasedPages(string $dir): array
     {
         $result = $this->scanDirectory($dir, $dir);
         return $result;
     }
 
+    /**
+     * @param string $dir 
+     * @param string $initDir 
+     * @return array 
+     */
     private function scanDirectory(string $dir, string $initDir): array
     {
         $result = [];

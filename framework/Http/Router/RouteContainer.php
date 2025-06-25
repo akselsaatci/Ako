@@ -4,15 +4,22 @@ namespace Framework\Http\Router;
 
 use Framework\Http\Context;
 
+/** @package Framework\Http\Router */
 class RouteContainer
 {
 
     public array $routes;
-    public function __construct(private Context $context) {}
     /**
-     * @param mixed $route
+     * @param Context $context 
+     * @return void 
      */
-    private function validateRoute($route): string
+    public function __construct(private Context $context) {}
+
+    /**
+     * @param string $route 
+     * @return string 
+     */
+    private function validateRoute(string $route): string
     {
         if ($route[-1] != '/') {
             $route = $route . '/';
@@ -21,6 +28,10 @@ class RouteContainer
         return $route;
     }
 
+    /**
+     * @param string $route 
+     * @return array 
+     */
     private function getRegexAndParameters(string $route): array
     {
         preg_match_all('#:([\w]+)#', $route, $matches);
@@ -41,7 +52,9 @@ class RouteContainer
 
 
     /**
-     * @param callable(): mixed $handler
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function get(string $route, callable $handler): RouteContainer
     {
@@ -59,7 +72,9 @@ class RouteContainer
         return $this;
     }
     /**
-     * @param callable(): mixed $handler
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function post(string $route, callable $handler): RouteContainer
     {
@@ -77,7 +92,9 @@ class RouteContainer
         return $this;
     }
     /**
-     * @param callable(): mixed $handler
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function put(string $route, callable  $handler): RouteContainer
     {
@@ -95,7 +112,9 @@ class RouteContainer
         return $this;
     }
     /**
-     * @param callable(): mixed $handler
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function delete(string $route, callable $handler): RouteContainer
     {
@@ -113,7 +132,9 @@ class RouteContainer
         return $this;
     }
     /**
-     * @param callable(): mixed $handler
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function patch(string $route, callable $handler): RouteContainer
     {
@@ -132,7 +153,10 @@ class RouteContainer
     }
 
     /**
-     * @param callable(): mixed $handler
+     * @param string $method 
+     * @param string $route 
+     * @param callable $handler 
+     * @return RouteContainer 
      */
     public function registerRoute(string $method, string $route, callable $handler): RouteContainer
     {
@@ -150,6 +174,11 @@ class RouteContainer
         return $this;
     }
 
+    /**
+     * @param string $method 
+     * @param string $route 
+     * @return null|callable 
+     */
     public function getHandler(string $method, string $route): ?callable
     {
         if ($route[-1] != '/') {

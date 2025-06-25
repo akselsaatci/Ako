@@ -2,12 +2,18 @@
 
 namespace Framework\Http;
 
+/** @package Framework\Http */
 abstract class PageAbstractClass
 {
 
     protected array $arguments;
     protected Context $context;
 
+    /**
+     * @param array $arguments 
+     * @param Context $context 
+     * @return void 
+     */
     public function  __construct(array $arguments, Context $context)
     {
         $this->arguments = $arguments;
@@ -15,7 +21,12 @@ abstract class PageAbstractClass
     }
     // FIX: Here i think it shouldn't be public but when i make it protected 
     // i cant call it from the global scope
-    public static function  renderPageHtml(array $arguments, Context $context): string
+    /**
+     * @param array $arguments 
+     * @param Context $context 
+     * @return string 
+     */
+    public static function renderPageHtml(array $arguments, Context $context): string
     {
         ob_start();
         $page = new static($arguments, $context);
@@ -23,6 +34,12 @@ abstract class PageAbstractClass
         $content = ob_get_clean();
         return $content;
     }
+    /**
+     * @param array $arguments 
+     * @param Context $context 
+     * @param mixed $layout 
+     * @return string 
+     */
     public static function renderPageHtmlWithLayout(array $arguments, Context $context, mixed $layout): string
     {
         ob_start();

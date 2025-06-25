@@ -4,6 +4,7 @@ namespace Framework\Http;
 
 use Framework\Http\Enums\HttpContentTypes;
 
+/** @package Framework\Http */
 class Response
 {
 
@@ -16,6 +17,12 @@ class Response
     const VERSION = 1.1;
 
 
+    /**
+     * @param int $statusCode 
+     * @param array $headers 
+     * @param null|string $content 
+     * @return void 
+     */
     function __construct(int $statusCode, array $headers, ?string $content = "")
     {
         $this->statusCode = $statusCode;
@@ -24,6 +31,10 @@ class Response
     }
 
 
+    /**
+     * @param null|string $content 
+     * @return $this 
+     */
     public function setContent(?string $content)
     {
         $this->content = $content ?? '';
@@ -31,11 +42,16 @@ class Response
         return $this;
     }
 
+    /** @return string|null  */
     public function getContent(): string | null
     {
         return $this->content;
     }
 
+    /**
+     * @param int $statusCode 
+     * @return $this 
+     */
     public function setStatusCode(int $statusCode)
     {
         $this->statusCode = $statusCode;
@@ -43,15 +59,21 @@ class Response
         return $this;
     }
 
+    /** @return int  */
     public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
+    /**
+     * @param HttpContentTypes $type 
+     * @return string 
+     */
     public function setContentTypeHeader(HttpContentTypes $type)
     {
         return $this->headers["Content-Type"] = $type->value;
     }
+    /** @return void  */
     private function prepareHeaders()
     {
         foreach ($this->headers as $header => $value) {
@@ -67,6 +89,7 @@ class Response
 
     // Prepare is for validating the headers and overall of the request
 
+    /** @return never  */
     public function send()
     {
         $this->prepareHeaders();
