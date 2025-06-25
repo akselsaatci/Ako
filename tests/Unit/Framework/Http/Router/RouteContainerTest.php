@@ -75,10 +75,6 @@ test('registerRoute works for custom methods', function () {
     expect($handler())->toBe('options');
 });
 
-test('test to fail', function () {
-    expect(3)->toBe(5);
-});
-
 test('handler receives context instance', function () {
     $receivedContext = null;
     $this->container->get('/ctx', function ($params, $context) use (&$receivedContext) {
