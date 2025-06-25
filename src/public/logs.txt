@@ -1571,3 +1571,19 @@
 [ALERT] : .DS_Store 
 [ALERT] : Page.php 
 [INFO] : Ako Kernel Initilized Date : 06:50:13pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 07:00:09pm 
+[ALERT] : .DS_Store 
+[ALERT] : IndexPage.php 
+[ALERT] : aksel 
+[ALERT] : .DS_Store 
+[ALERT] : :id 
+[ALERT] : .DS_Store 
+[ALERT] : Page.php 
+[INFO] : Ako Kernel Initilized Date : 07:00:09pm 

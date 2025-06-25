@@ -10,7 +10,7 @@ use Framework\Http\Response;
 class Page extends PageAbstractClass
 {
     public static function get(array $arguments, Context $context): Response
-    {   
+    {
         $html = Page::renderPageHtmlWithLayout($arguments, $context, Layout::class);
         $respone = new Response(200, [], $html);
         return $respone->send();
