@@ -92,3 +92,53 @@ class NestedPage extends PageAbstractClass {
     expect($results[0]['class'])->toBe('App\\app\\Pages\\NestedPage');
     expect($results[0]['route'])->toBe('/subdir/');
 });
+
+test('handles empty directories', function () {
+    $root = vfsStream::setup('root', null, [
+        'empty_dir' => []
+    ]);
+
+    $finder = new FileBasedRouteFinder($this->context);
+    $results = $finder->getFileBasedPages($root->url());
+
+    expect($results)->toBeEmpty();
+});
+
+test('creates routes for all http methods in a class', function () {
+    $root = vfsStream::setup('root', null, [
+        'MultiMethodPage.php' => '<?php 
+namespace App\\app\\Pages;
+use Framework\\Http\\PageAbstractClass;
+class MultiMethodPage extends PageAbstractClass { 
+    public function get() {}
+    public function post() {}
+    public function put() {}
+    public function delete() {}
+    public function pageHtml() {}
+}'
+    ]);
+
+    $finder = new FileBasedRouteFinder($this->context);
+    $results = $finder->getFileBasedPages($root->url());
+
+    expect($results)->toHaveCount(4);
+    $methods = array_column($results, 'method');
+    expect($methods)->toContain('GET', 'POST', 'put', 'delete');
+});
+
+test('generates correct route for index pages', function () {
+    $root = vfsStream::setup('root', null, [
+        'IndexPage.php' => '<?php 
+namespace App\\app\\Pages;
+use Framework\\Http\\PageAbstractClass;
+class IndexPage extends PageAbstractClass { 
+    public function get() {} 
+    public function pageHtml() {}
+}'
+    ]);
+
+    $finder = new FileBasedRouteFinder($this->context);
+    $results = $finder->getFileBasedPages($root->url());
+
+    expect($results[0]['route'])->toBe('/');
+});

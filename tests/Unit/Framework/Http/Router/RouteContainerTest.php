@@ -85,3 +85,41 @@ test('handler receives context instance', function () {
     $handler();
     expect($receivedContext)->toBe($this->context);
 });
+
+test('handles multiple route parameters', function () {
+    $this->container->get('/user/:userId/post/:postId', fn($params) => "User {$params['userId']}, Post {$params['postId']}");
+    $handler = $this->container->getHandler('GET', '/user/123/post/456');
+    expect($handler())->toBe('User 123, Post 456');
+});
+
+test('matches specific route before dynamic one', function () {
+    // Register specific route first
+    $this->container->get('/user/new', fn() => 'new user form');
+    // Register dynamic route
+    $this->container->get('/user/:id', fn($params) => "user {$params['id']}");
+
+    $handler = $this->container->getHandler('GET', '/user/new');
+    expect($handler())->toBe('new user form');
+});
+
+test('ignores query string when matching route', function () {
+    $this->container->get('/search', fn() => 'search page');
+    $uri = '/search?q=test&sort=asc';
+    // We need to simulate the request URI behavior
+    $path = parse_url($uri, PHP_URL_PATH);
+    $handler = $this->container->getHandler('GET', $path);
+    expect($handler)->not->toBeNull();
+    expect($handler())->toBe('search page');
+});
+
+test('handles the root route', function () {
+    $this->container->get('/', fn() => 'homepage');
+    $handler = $this->container->getHandler('GET', '/');
+    expect($handler())->toBe('homepage');
+});
+
+test('returns null if route parameter is missing', function () {
+    $this->container->get('/user/:id', fn() => 'wont be called');
+    $handler = $this->container->getHandler('GET', '/user/');
+    expect($handler)->toBeNull();
+});
