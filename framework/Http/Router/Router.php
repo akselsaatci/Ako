@@ -5,6 +5,7 @@ namespace Framework\Http\Router;
 use Exception;
 use Framework\Http\Context;
 use Framework\Http\Exceptions\RouteNotFoundException;
+use Framework\Http\Response;
 use Framework\Http\Router\RouteContainer;
 
 /** @package Framework\Http\Router */
@@ -46,10 +47,10 @@ class Router
 
     /**
      * @param mixed $handler 
-     * @return mixed 
+     * @return Response
      * @throws Exception 
      */
-    public function resolve($handler):mixed
+    public function resolve($handler):Response
     {
         if (is_callable($handler)) {
             return $handler();

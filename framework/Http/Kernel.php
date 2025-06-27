@@ -40,7 +40,7 @@ class Kernel
         try {
             $handler =  $this->router->dispatch($this->request->getMethod(), $this->request->getUri());
             $response = $this->router->resolve($handler);
-            echo $response;
+            $response->send();
         } catch (RouteNotFoundException $ex) {
             echo '404';
         }
