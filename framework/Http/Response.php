@@ -3,9 +3,12 @@
 namespace Framework\Http;
 
 use Framework\Http\Enums\HttpContentTypes;
+use Psr\Http\Message\MessageInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 /** @package Framework\Http */
-class Response
+class Response implements ResponseInterface
 {
 
     /* https://symfony.com/doc/current/components/http_foundation.html#response*/
@@ -29,6 +32,32 @@ class Response
         $this->headers = $headers;
         $this->content = $content;
     }
+
+    public function withStatus(int $code, string $reasonPhrase = ''): ResponseInterface { }
+
+    public function getReasonPhrase(): string { }
+
+    public function getProtocolVersion(): string { }
+
+    public function withProtocolVersion(string $version): MessageInterface { }
+
+    public function getHeaders(): array { }
+
+    public function hasHeader(string $name): bool { }
+
+    public function getHeader(string $name): array { }
+
+    public function getHeaderLine(string $name): string { }
+
+    public function withHeader(string $name, $value): MessageInterface { }
+
+    public function withAddedHeader(string $name, $value): MessageInterface { }
+
+    public function withoutHeader(string $name): MessageInterface { }
+
+    public function getBody(): StreamInterface { }
+
+    public function withBody(StreamInterface $body): MessageInterface { }
 
 
     /**

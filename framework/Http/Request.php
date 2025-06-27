@@ -2,9 +2,13 @@
 
 namespace Framework\Http;
 
+use Psr\Http\Message\MessageInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\StreamInterface;
 
 /** @package Framework\Http */
-class Request
+class Request implements RequestInterface
 {
 
     /* https://symfony.com/doc/current/components/http_foundation.html#request */
@@ -31,6 +35,36 @@ class Request
         $this->files =  $FILES;
         $this->server =  $SERVER;
     }
+
+    public function getRequestTarget(): string { }
+
+    public function withRequestTarget(string $requestTarget): RequestInterface { }
+
+    public function withMethod(string $method): RequestInterface { }
+
+    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface { }
+
+    public function getProtocolVersion(): string { }
+
+    public function withProtocolVersion(string $version): MessageInterface { }
+
+    public function getHeaders(): array { }
+
+    public function hasHeader(string $name): bool { }
+
+    public function getHeader(string $name): array { }
+
+    public function getHeaderLine(string $name): string { }
+
+    public function withHeader(string $name, $value): MessageInterface { }
+
+    public function withAddedHeader(string $name, $value): MessageInterface { }
+
+    public function withoutHeader(string $name): MessageInterface { }
+
+    public function getBody(): StreamInterface { }
+
+    public function withBody(StreamInterface $body): MessageInterface { }
 
     /** @return Request  */
     public static function createFromGlobals(): Request

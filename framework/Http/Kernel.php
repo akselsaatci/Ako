@@ -7,6 +7,7 @@ use Framework\Http\Exceptions\RouteNotFoundException;
 use Framework\Http\Request;
 use Framework\Http\Router\Router;
 use Psr\Log\LoggerInterface;
+use Throwable;
 
 /** @package Framework\Http */
 class Kernel
@@ -30,7 +31,6 @@ class Kernel
         $this->request = $request;
         $this->context = $context;
         $this->logger = $this->context->logger;
-
         $this->logger->info("Ako Kernel Initilized Date : {datetime}", ["datetime" => date("h:i:sa")]);
     }
 
@@ -42,7 +42,12 @@ class Kernel
             $response = $this->router->resolve($handler);
             $response->send();
         } catch (RouteNotFoundException $ex) {
+            http_response_code(404);
             echo '404';
+        } catch (Throwable $ex) {
+            $this->context->logger->critical($ex);
+            http_response_code(505);
+            echo '505';
         }
     }
 }
