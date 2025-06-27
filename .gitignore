@@ -5,7 +5,8 @@ Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 .idea
-logs.txt
+src/public/logs.txt
+
 
 # Dump file
 *.stackdump

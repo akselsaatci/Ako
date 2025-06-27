@@ -26,11 +26,12 @@ class Response implements ResponseInterface
      * @param null|string $content 
      * @return void 
      */
-    function __construct(int $statusCode, array $headers, ?string $content = "")
+    function __construct(int $statusCode, array $headers,HttpContentTypes $httpContent, ?string $content = "")
     {
         $this->statusCode = $statusCode;
         $this->headers = $headers;
         $this->content = $content;
+        $this->setContentTypeHeader($httpContent);
     }
 
     public function withStatus(int $code, string $reasonPhrase = ''): ResponseInterface { }
@@ -106,7 +107,7 @@ class Response implements ResponseInterface
     private function prepareHeaders()
     {
         foreach ($this->headers as $header => $value) {
-            header($header, $value);
+            header($header . ': ' . $value);
         }
         http_response_code($this->getStatusCode());
     }
