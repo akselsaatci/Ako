@@ -18,6 +18,10 @@ class Request implements RequestInterface
     private array $cookie;
     private array $files;
     private array $server;
+    private array $headers;
+    private string $version;
+    private string $method;
+    private string $uri;
 
     /**
      * @param array $GET 
@@ -27,63 +31,137 @@ class Request implements RequestInterface
      * @param array $SERVER 
      * @return void 
      */
-    function __construct(array $GET, array  $POST, array  $COOKIE, array  $FILES, array  $SERVER)
+    function __construct(array $GET, array  $POST, array  $COOKIE, array  $FILES, array  $SERVER, ?string $VERSION)
     {
         $this->get = $GET;
         $this->post =  $POST;
         $this->cookie =  $COOKIE;
         $this->files =  $FILES;
         $this->server =  $SERVER;
+        $this->headers =  getallheaders();
+        //FIX: Fix this later
+        $this->version = $VERSION ?? "1.0";
+        $this->method = $SERVER['REQUEST_METHOD'];
+        $this->uri = $SERVER["REQUEST_URI"];
     }
 
-    public function getRequestTarget(): string { }
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
 
-    public function withRequestTarget(string $requestTarget): RequestInterface { }
+    public function getUri(): UriInterface {}
 
-    public function withMethod(string $method): RequestInterface { }
+    private function setMethod(string $method)
+    {
 
-    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface { }
+        $this->method = $method;
+        $this->server['REQUEST_METHOD'] = $method;
+    }
 
-    public function getProtocolVersion(): string { }
+    private function setUri(string $uri)
+    {
 
-    public function withProtocolVersion(string $version): MessageInterface { }
+        $this->uri = $uri;
+        $this->server['REQUEST_URI'] = $uri;
+    }
 
-    public function getHeaders(): array { }
 
-    public function hasHeader(string $name): bool { }
+    public function getRequestTarget(): string
+    {
+        return $this->uri;
+    }
 
-    public function getHeader(string $name): array { }
+    public function withRequestTarget(string $requestTarget): RequestInterface
+    {
 
-    public function getHeaderLine(string $name): string { }
+        $newRequest = unserialize(serialize($this));
+        $newRequest->setUri($requestTarget);
+        return $newRequest;
+    }
 
-    public function withHeader(string $name, $value): MessageInterface { }
+    public function withMethod(string $method): RequestInterface
+    {
+        $newRequest = unserialize(serialize($this));
+        $newRequest->setMethod($method);
+        return $newRequest;
+    }
 
-    public function withAddedHeader(string $name, $value): MessageInterface { }
+    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface {}
 
-    public function withoutHeader(string $name): MessageInterface { }
+    public function getProtocolVersion(): string
+    {
+        return $this->version;
+    }
 
-    public function getBody(): StreamInterface { }
+    public function withProtocolVersion(string $version): MessageInterface {
+        $newRequest = unserialize(serialize($this));
+        $newRequest->$version = $version;
+        return $newRequest;
 
-    public function withBody(StreamInterface $body): MessageInterface { }
+}
+
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+    public function hasHeader(string $name): bool
+    {
+        if ($this->headers[strtolower($name)] != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public function getHeader(string $name): array
+    {
+        return $this->headers[strtolower($name)] ?? [];
+    }
+
+    public function getHeaderLine(string $name): string
+    {
+        return implode(',', $this->headers[strtolower($name)] ?? []);
+    }
+
+    public function withHeader(string $name, $value): MessageInterface
+    {
+
+        $newRequest = unserialize(serialize($this));
+        $newRequest->headers[$name] = $value;
+        return $newRequest;
+    }
+
+    public function withAddedHeader(string $name, $value): MessageInterface
+    {
+        $newValues = is_array($value) ? array_values($value) : [$value];
+        $newRequest = unserialize(serialize($this));
+
+        foreach ($newRequest->headers as $key => $existingValues) {
+            if (strtolower($key) === strtolower($name)) {
+                $newRequest->headers[$key] = array_merge($existingValues, $newValues);
+                return $newRequest;
+            }
+        }
+        $newRequest->headers[$name] = $newValues;
+        return $newRequest;
+    }
+
+    public function withoutHeader(string $name): MessageInterface
+    {
+
+        $newRequest = unserialize(serialize($this));
+        unset($newRequest->headers[strtolower($name)]);
+        return $newRequest;
+    }
+
+    public function getBody(): StreamInterface {}
+
+    public function withBody(StreamInterface $body): MessageInterface {}
 
     /** @return Request  */
     public static function createFromGlobals(): Request
     {
-        return new self($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
-    }
-
-    /** @return mixed  */
-    public function getMethod()
-    {
-
-        return $this->server["REQUEST_METHOD"];
-    }
-
-
-    /** @return mixed  */
-    public function getUri()
-    {
-
-        return $this->server["REQUEST_URI"];
+        return new self($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER, null);
     }
 }
