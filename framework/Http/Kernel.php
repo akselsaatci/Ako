@@ -47,7 +47,7 @@ class Kernel
         } catch (Throwable $ex) {
             $this->context->logger->critical($ex);
             http_response_code(505);
-            echo '505';
+            echo $ex;
         }
     }
 }

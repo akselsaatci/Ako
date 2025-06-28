@@ -17,16 +17,16 @@ class IndexPage extends PageAbstractClass
      * @param Context $context 
      * @return Response 
      */
-    public static function get(array $arguments, Context $context): Response
+    public function get(): Response
     {
-        $html = Page::renderPageHtmlWithLayout($arguments, $context, Layout::class);
+        $html = $this->renderPageHtmlWithLayout(new Layout());
         $respone = new Response(200, [], HttpContentTypes::TextHtml,  $html);
         return $respone;
     }
 
-    public static function post(array $arguments, Context $context): Response
+    public function post(): Response
     {
-        $html = Page::renderPageHtmlWithLayout($arguments, $context, Layout::class);
+        $html = $this->renderPageHtmlWithLayout(new Layout());
         $respone = new Response(200, [], HttpContentTypes::TextHtml, $html);
         return $respone;
     }

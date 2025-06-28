@@ -26,10 +26,10 @@ abstract class PageAbstractClass
      * @param Context $context 
      * @return string 
      */
-    public static function renderPageHtml(array $arguments, Context $context): string
+    protected final function renderPageHtml(): string
     {
         ob_start();
-        $page = new static($arguments, $context);
+        $page = new $this($this->arguments, $this->context);
         $page->pageHtml();
         $content = ob_get_clean();
         return $content;
@@ -40,10 +40,10 @@ abstract class PageAbstractClass
      * @param mixed $layout 
      * @return string 
      */
-    public static function renderPageHtmlWithLayout(array $arguments, Context $context, mixed $layout): string
+    protected final function renderPageHtmlWithLayout(LayoutInterface $layout): string
     {
         ob_start();
-        $page = new static($arguments, $context);
+        $page = new $this($this->arguments, $this->context);
         $page->pageHtml();
         $content = ob_get_clean();
 

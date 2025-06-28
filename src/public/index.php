@@ -25,7 +25,7 @@ $routes = $finder->getFileBasedPages(__DIR__ . '/../app/Pages');
 $container = new RouteContainer($context);
 
 foreach ($routes as $route) {
-    $container->registerRoute($route["method"], $route["route"], [$route["class"], $route["method"]]);
+    $container->registerRoute($route["method"], $route["route"], $route["handler"]);
 }
 
 $router = new Router($container, $context);
