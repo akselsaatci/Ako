@@ -12,11 +12,6 @@ use Framework\Http\Response;
 
 class IndexPage extends PageAbstractClass
 {
-    /**
-     * @param array $arguments 
-     * @param Context $context 
-     * @return Response 
-     */
     public function get(): Response
     {
         $html = $this->renderPageHtmlWithLayout(new Layout());

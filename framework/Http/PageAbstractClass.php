@@ -21,11 +21,8 @@ abstract class PageAbstractClass
     }
     // FIX: Here i think it shouldn't be public but when i make it protected 
     // i cant call it from the global scope
-    /**
-     * @param array $arguments 
-     * @param Context $context 
-     * @return string 
-     */
+
+    /** @return string  */
     protected final function renderPageHtml(): string
     {
         ob_start();
@@ -35,9 +32,7 @@ abstract class PageAbstractClass
         return $content;
     }
     /**
-     * @param array $arguments 
-     * @param Context $context 
-     * @param mixed $layout 
+     * @param LayoutInterface $layout 
      * @return string 
      */
     protected final function renderPageHtmlWithLayout(LayoutInterface $layout): string
