@@ -123,7 +123,7 @@ class MultiMethodPage extends PageAbstractClass {
 
     expect($results)->toHaveCount(4);
     $methods = array_column($results, 'method');
-    expect($methods)->toContain('GET', 'POST', 'put', 'delete');
+    expect($methods)->toContain('GET', 'POST', 'PUT', 'DELETE');
 });
 
 test('generates correct route for index pages', function () {

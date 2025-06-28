@@ -10,16 +10,18 @@ use Framework\Http\Response;
 
 class Page extends PageAbstractClass
 {
-    public static function get(array $arguments, Context $context): Response
+    public function get(): Response
     {
-        $html = Page::renderPageHtmlWithLayout($arguments, $context, Layout::class);
+        $html = $this->renderPageHtmlWithLayout(new Layout());
         $respone = new Response(200, [],HttpContentTypes::TextHtml, $html);
-        return $respone->send();
+        return $respone;
     }
 
-    public static function post(array $arguments, Context $context)
+    public function post()
     {
-        Page::renderPageHtml($arguments, $context);
+        $html = $this->renderPageHtml();
+        $respone = new Response(200, [],HttpContentTypes::TextHtml, $html);
+        return $respone;
     }
 
     public function pageHtml()

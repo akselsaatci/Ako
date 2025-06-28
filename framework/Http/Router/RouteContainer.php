@@ -195,7 +195,6 @@ class RouteContainer
             if (preg_match($routeEntry['regex'], $route, $matches)) {
                 array_shift($matches);
                 $params = array_combine($routeEntry['paramNames'], $matches);
-                $context = $this->context;
 
                 return function () use ($routeEntry, $params) {
                     return call_user_func($routeEntry['handler'], $params,$this->context);

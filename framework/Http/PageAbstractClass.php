@@ -21,29 +21,24 @@ abstract class PageAbstractClass
     }
     // FIX: Here i think it shouldn't be public but when i make it protected 
     // i cant call it from the global scope
-    /**
-     * @param array $arguments 
-     * @param Context $context 
-     * @return string 
-     */
-    public static function renderPageHtml(array $arguments, Context $context): string
+
+    /** @return string  */
+    protected final function renderPageHtml(): string
     {
         ob_start();
-        $page = new static($arguments, $context);
+        $page = new $this($this->arguments, $this->context);
         $page->pageHtml();
         $content = ob_get_clean();
         return $content;
     }
     /**
-     * @param array $arguments 
-     * @param Context $context 
-     * @param mixed $layout 
+     * @param LayoutInterface $layout 
      * @return string 
      */
-    public static function renderPageHtmlWithLayout(array $arguments, Context $context, mixed $layout): string
+    protected final function renderPageHtmlWithLayout(LayoutInterface $layout): string
     {
         ob_start();
-        $page = new static($arguments, $context);
+        $page = new $this($this->arguments, $this->context);
         $page->pageHtml();
         $content = ob_get_clean();
 

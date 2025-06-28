@@ -8,7 +8,7 @@ use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\StreamInterface;
 
 /** @package Framework\Http */
-class Request implements RequestInterface
+class Request 
 {
 
     /* https://symfony.com/doc/current/components/http_foundation.html#request */

@@ -63,6 +63,7 @@ class FileBasedRouteFinder
 
             if (class_exists($selectedClass) && is_subclass_of($selectedClass, PageAbstractClass::class)) {
 
+
                 $route = str_replace($initDir, "", $fullPath);
                 $route = str_replace('.php', '', $route);
                 $route = str_replace($className, '', $route);
@@ -73,28 +74,52 @@ class FileBasedRouteFinder
                     "method" => "get",
                     "route" => $route,
                     "class" => $selectedClass,
+                    "handler" => null,
                 ];
-                if (method_exists($selectedClass, 'get')) {
 
+                $context = $this->context;
+
+                if (method_exists($selectedClass, 'get')) {
                     $addResult["method"] = "GET";
+                    $handler = $this->getHandlerMethod($context, $selectedClass, 'get');
+                    $addResult["handler"] = $handler;
                     $result[] = $addResult;
                 }
                 if (method_exists($selectedClass, 'post')) {
                     $addResult["method"] = "POST";
+                    $handler = $this->getHandlerMethod($context, $selectedClass, 'post');
+                    $addResult["handler"] = $handler;
                     $result[] = $addResult;
                 }
                 if (method_exists($selectedClass, 'put')) {
-                    $addResult["method"] = "put";
+                    $addResult["method"] = "PUT";
+                    $handler = $this->getHandlerMethod($context, $selectedClass, 'put');
+                    $addResult["handler"] = $handler;
                     $result[] = $addResult;
                 }
 
                 if (method_exists($selectedClass, 'delete')) {
-                    $addResult["method"] = "delete";
+                    $addResult["method"] = "DELETE";
+                    $handler = $this->getHandlerMethod($context, $selectedClass, 'delete');
+                    $addResult["handler"] = $handler;
                     $result[] = $addResult;
                 }
             }
         }
 
         return $result;
+    }
+
+    private function getHandlerMethod(Context $context, string $selectedClass, string $method): callable
+    {
+        return function (...$params) use ($context, $selectedClass, $method) {
+            $pageInstance = new $selectedClass($params[0] ?? [], $context);
+
+            if (!method_exists($pageInstance, $method)) {
+                throw new \Exception("Route handler for " . $selectedClass . "::" . $method . " is not valid.");
+            }
+
+            return call_user_func([$pageInstance, $method]);
+        };
     }
 }
