@@ -2,7 +2,6 @@
 
 namespace Framework\Http;
 
-use Exception;
 use Framework\Http\Exceptions\RouteNotFoundException;
 use Framework\Http\Request;
 use Framework\Http\Router\Router;

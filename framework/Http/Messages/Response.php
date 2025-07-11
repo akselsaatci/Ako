@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Http;
+namespace Framework\Http\Messages;
 
 use Framework\Http\Enums\HttpContentTypes;
 use Psr\Http\Message\MessageInterface;
