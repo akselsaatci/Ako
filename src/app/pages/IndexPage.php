@@ -14,6 +14,7 @@ class IndexPage extends PageAbstractClass
 {
     public function get(): Response
     {
+
         $html = $this->renderPageHtmlWithLayout(new Layout());
         $respone = new Response(200, [], HttpContentTypes::TextHtml,  $html);
         return $respone;
@@ -28,12 +29,16 @@ class IndexPage extends PageAbstractClass
 
     public function pageHtml()
     {
+
+        $opcacheData =       var_dump(opcache_get_status()['jit']);
+
 ?>
         <html>
 
         <body>
             <h1>AKSEL <?php echo $this->arguments["id"] ?? "ZORT YOK LA" ?>
             </h1>
+            <p><?php echo $opcacheData ?></p>
         </body>
 
         </html>
