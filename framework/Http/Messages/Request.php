@@ -46,13 +46,14 @@ class Request implements RequestInterface
         $this->uri = $SERVER["REQUEST_URI"];
     }
 
-    private function deepCopySelf(): Request
+
+    public function withRequestTarget(string $requestTarget): RequestInterface
     {
-        $newRequest = unserialize(serialize($this));
+
+        $newRequest = $this->deepCopySelf();
+        $newRequest->$requestTarget = $requestTarget;
         return $newRequest;
     }
-
-    public function withRequestTarget(string $requestTarget): RequestInterface {}
 
     public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface {}
 

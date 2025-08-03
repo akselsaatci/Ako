@@ -8,13 +8,14 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
 /** @package Framework\Http */
-class Response 
+class Response implements ResponseInterface
 {
+    use MessageTrait;
 
     /* https://symfony.com/doc/current/components/http_foundation.html#response*/
 
-
     private int $statusCode;
+    private int $reasonPhrase;
     private array $headers;
     private string $content;
     const VERSION = 1.1;
@@ -26,15 +27,29 @@ class Response
      * @param null|string $content 
      * @return void 
      */
-    function __construct(int $statusCode, array $headers,HttpContentTypes $httpContent, ?string $content = "")
+    function __construct(int $statusCode, array $headers, HttpContentTypes $httpContent, ?string $content = "")
     {
+
         $this->statusCode = $statusCode;
         $this->headers = $headers;
         $this->content = $content;
         $this->setContentTypeHeader($httpContent);
+        // FIX: Currenlty i am not getting the code i will implement this later
+        $this->reasonPhrase = "HTTP/" . $this->getProtocolVersion() . ' ' . $this->getStatusCode() . ' ' . 'OK';
     }
 
+    public function withStatus(int $code, string $reasonPhrase = ''): ResponseInterface
+    {
+        $newResponse = $this->deepCopySelf();
+        $newResponse->$code = $code;
+        $newResponse->$reasonPhrase = $reasonPhrase;
+        return $newResponse;
+    }
 
+    public function getReasonPhrase(): string
+    {
+        return $this->reasonPhrase;
+    }
 
     /**
      * @param null|string $content 
@@ -100,11 +115,10 @@ class Response
         $this->prepareHeaders();
         echo $this->content;
         exit;
-        
     }
 
     // TODO: Implement those 
-    public function view(){}
-    public function json(){}
-    public function text(){}
+    public function view() {}
+    public function json() {}
+    public function text() {}
 }
