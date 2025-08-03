@@ -8,6 +8,7 @@ class Layout implements LayoutInterface
 {
     public static function getLayout(array $arguments): void
     {
+
 ?>
         <!DOCTYPE html>
         <html lang="<?php echo $arguments["lang"] ?? "en" ?>">
@@ -17,14 +18,16 @@ class Layout implements LayoutInterface
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title><?php echo $arguments["Title"] ?? "My Ako Framework Application" ?></title>
-            <link rel="stylesheet" href="/style.css">
+            <link rel="stylesheet" href="/output.css">
             <?php echo $arguments["styles"] ?? "" ?>
             <link rel="icon" href="./favicon.ico" type="image/x-icon">
         </head>
 
-        <body>
+        <body class="min-h-screen bg-background text-foreground">
             <?php echo $arguments["body"] ?? "" ?>
-            <?php echo $arguments["scripts"] ?? "" ?>
+
+            <script src="<?php echo $arguments["script"] ?? "" ?>"></script>
+
         </body>
 
         </html>
