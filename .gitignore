@@ -134,6 +134,8 @@ vc_hdrs.h
 .hgsub
 .hgsubstate
 .hgtags
+node_modules/
+
 
 ##### Bazaar
 .bzr/

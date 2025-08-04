@@ -6,7 +6,7 @@ namespace App\public;
 
 use Framework\Http\Context;
 use Framework\Http\Kernel;
-use Framework\Http\Request;
+use Framework\Http\Messages\Request;
 use Framework\Http\Router\FileBasedRouteFinder;
 use Framework\Http\Router\RouteContainer;
 use Framework\Http\Router\Router;

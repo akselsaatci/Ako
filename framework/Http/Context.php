@@ -3,6 +3,7 @@
 namespace Framework\Http;
 
 use Exception;
+use Framework\Http\Messages\Request;
 use Psr\Log\LoggerInterface;
 
 /** @package Framework\Http */

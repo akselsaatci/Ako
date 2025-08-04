@@ -7,6 +7,7 @@ use Framework\Http\Context;
 use Framework\Http\Exceptions\RouteNotFoundException;
 use Framework\Http\Response;
 use Framework\Http\Router\RouteContainer;
+use Psr\Http\Message\ResponseInterface;
 
 /** @package Framework\Http\Router */
 class Router
@@ -50,7 +51,7 @@ class Router
      * @return Response
      * @throws Exception 
      */
-    public function resolve($handler):Response
+    public function resolve($handler): ResponseInterface
     {
         if (is_callable($handler)) {
             return $handler();

@@ -23,7 +23,7 @@ class Request implements RequestInterface
     private array $headers;
     private string $version;
     private string $method;
-    private string $uri;
+    private UriInterface $uri;
 
     /**
      * @param array $GET 
@@ -43,7 +43,7 @@ class Request implements RequestInterface
         $this->headers =  getallheaders();
         $this->version = $VERSION ?? "1.0";
         $this->method = $SERVER['REQUEST_METHOD'];
-        $this->uri = $SERVER["REQUEST_URI"];
+        $this->uri = new Uri($SERVER["REQUEST_URI"]);
     }
 
 
@@ -55,14 +55,24 @@ class Request implements RequestInterface
         return $newRequest;
     }
 
-    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface {}
+    public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface
+    {
+        // TODO: Should check the preserveHost
+
+        $new = clone $this;
+        $new->uri = $uri;
+        return $new;
+    }
 
     public function getMethod(): string
     {
         return $this->method;
     }
 
-    public function getUri(): UriInterface {}
+    public function getUri(): UriInterface
+    {
+        return $this->uri;
+    }
 
     private function setMethod(string $method)
     {
@@ -80,8 +90,8 @@ class Request implements RequestInterface
     private function setUri(string $uri)
     {
 
-        $this->uri = $uri;
-        $this->server['REQUEST_URI'] = $uri;
+
+        $this->uri = new Uri($uri);
     }
 
 

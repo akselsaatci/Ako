@@ -3,7 +3,7 @@
 namespace Framework\Http;
 
 use Framework\Http\Exceptions\RouteNotFoundException;
-use Framework\Http\Request;
+use Framework\Http\Messages\Request;
 use Framework\Http\Router\Router;
 use Psr\Log\LoggerInterface;
 use Throwable;
@@ -37,7 +37,8 @@ class Kernel
     public function handle(): void
     {
         try {
-            $handler =  $this->router->dispatch($this->request->getMethod(), $this->request->getUri());
+            echo $this->request->getUri()->__toString();
+            $handler =  $this->router->dispatch($this->request->getMethod(), $this->request->getUri()->__toString());
             $response = $this->router->resolve($handler);
             $response->send();
         } catch (RouteNotFoundException $ex) {
